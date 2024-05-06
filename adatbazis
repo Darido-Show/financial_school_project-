@@ -1,0 +1,54 @@
+CREATE TABLE Users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    user_password VARCHAR(255),
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Lessons (
+    lesson_id INT PRIMARY KEY AUTO_INCREMENT,
+    lesson_name VARCHAR(100),
+    lesson_description TEXT,
+    difficulty_level ENUM('Beginner', 'Intermediate', 'Advanced')
+);
+
+CREATE TABLE Exercises (
+    exercise_id INT PRIMARY KEY AUTO_INCREMENT,
+    lesson_id INT,
+    question_id INT,
+    FOREIGN KEY (lesson_id) REFERENCES Lessons(lesson_id)
+    FOREIGN KEY (question_id) REFERENCES Questions(question_id)
+    
+);
+
+CREATE TABLE Correctanswers (
+    correctanswer_id INT PRIMARY KEY AUTO_INCREMENT,
+    answer varchar(255),
+    question_id INT,
+    FOREIGN KEY (question_id) REFERENCES Questions(question_id)
+);
+
+CREATE TABLE Questions ( 
+    question_id INT PRIMARY KEY AUTO_INCREMENT,
+    question varchar(255)
+);
+
+CREATE TABLE UserProgress (
+    user_id INT(100),
+    lesson_id INT(50),
+    exercise_id INT(50),
+    completed BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (lesson_id) REFERENCES Lessons(lesson_id),
+    FOREIGN KEY (exercise_id) REFERENCES Exercises(exercise_id)
+);
+
+CREATE TABLE Achievements (
+    achievement_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT(100),
+    achievement_name VARCHAR(100),
+    achievement_description TEXT,
+    achievement_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
