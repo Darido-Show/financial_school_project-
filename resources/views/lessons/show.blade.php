@@ -6,10 +6,10 @@
     <div class="col">
         <div class="card border-secondary">
             <div class="card-body">
-                <h4 class="card-title">{{$lessons->name}}</h4>
+                <h4 class="card-title">{{$lesson->title}}</h4>
 
-                <p>Name of the Lesson: {{$lessonss->name}}</p>
-                <p>Description of the Lesson: {{$lessons->description}}</p>
+                <p>Name of the Lesson: {{$lesson->title}}</p>
+                <p>Description of the Lesson: {{$lesson->description}}</p>
                 
             </div>
         </div>

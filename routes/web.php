@@ -16,10 +16,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     |--------------------------------------------------------------------------
  */
 
-    Route::resource('/lessons', App\Http\Controllers\LessonController::class);
+    
     Route::get('/lesson/show_deleted', [App\Http\Controllers\LessonController::class, 'show_deleted'])->name('lessons.show_deleted');
     Route::put('/lessons/restore/{lesson}', [App\Http\Controllers\LessonController::class, 'restore'])->name('lessons.restore')->withTrashed();
-
+    Route::resource('/lessons', App\Http\Controllers\LessonController::class);
   /*   
     |--------------------------------------------------------------------------
     | Exercise routes

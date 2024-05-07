@@ -8,20 +8,18 @@
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
-                    <strong>Holy guacamole!</strong>
+                    <strong>Wow, you're really good at this!</strong>
                     <p>{{ Session::get('success') }}</p>
                 </div>
             @endif
             <div class="table-responsive-xl">
-                <table class="table table-dark" id="courseTable">
+                <table class="table table-light" id="courseTable">
                     <thead>
                         <tr>
                             <th scope="col">Exercise Name</th>
                             <th scope="col">Exercise Description</th>
                             <th scope="col">Correct Answer</th>
                             <th scope="col">Actions</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

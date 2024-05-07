@@ -35,7 +35,8 @@ class ExerciseController extends Controller
         $exercise = new Exercise(
             [
                 "name" => $request->name,
-                "description" => $request->description
+                "question_id"=> $request->question_id,
+                "lesson_id" => $request->lesson_id
             ]
         );
             $exercise->save();

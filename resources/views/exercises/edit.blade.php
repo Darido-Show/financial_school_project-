@@ -15,7 +15,7 @@
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
-                                <strong>Holy guacamole!</strong>
+                                <strong>Ups, try again!</strong>
 
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -30,7 +30,7 @@
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                          
-                            <strong>Holy guacamole!</strong> 
+                            <strong>Wow, you're really good at this!</strong> 
                             <p>{{Session::get('success')}}</p>
                         </div>
                     @endif
@@ -51,14 +51,14 @@
 
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <input type="text" name="description" id="description" class="form-control"
+                            <label for="lesson_id" class="form-label">lesson_id</label>
+                            <input type="text" name="lesson_id" id="lesson_id" class="form-control"
                                 placeholder="f.e. Beginner tutorial" aria-describedby="helpId" maxlength="255">
                             <small id="helpId" class="text-muted">Short summary of the Lesson (255 chars)</small>
                         </div>
                         <div class="mb-3">
-                            <label for="difficulty" class="form-label">Difficulty</label>
-                            <input type="text" name="description" id="description" class="form-control"
+                            <label for="question_id" class="form-label">question_id</label>
+                            <input type="text" name="question_id" id="question_id" class="form-control"
                                 placeholder="f.e. Beginner tutorial" aria-describedby="helpId" maxlength="255">
                             <small id="helpId" class="text-muted">Short summary of the Lesson (255 chars)</small>
                         </div>

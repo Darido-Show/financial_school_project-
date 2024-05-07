@@ -6,10 +6,10 @@
         <div class="col-8">
             <h1>Deleted Lessons</h1>
             <div class="table-responsive-xl">
-                <table class="table table-dark">
+                <table class="table table-light">
                     <thead>
                         <tr>
-                            <th scope="col">Lesson Name</th>
+                            <th scope="col">Lesson Title</th>
                             <th scope="col">Lesson Description</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -18,7 +18,7 @@
 
                         @foreach ($lessons as $item)
                             <tr class="">
-                                <td scope="row">{{$item->name}}</td>
+                                <td scope="row">{{$item->title}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>
                                     <form action="{{ route('lessons.restore', ['lesson' => $item]) }}" method="POST">

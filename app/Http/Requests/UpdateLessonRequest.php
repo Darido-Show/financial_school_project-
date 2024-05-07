@@ -22,7 +22,9 @@ class UpdateLessonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|max:30|unique:lessons,title'.$this->id,
+            'description' => 'required|max:255',
+            'difficulty'=> 'required',
         ];
     }
 }

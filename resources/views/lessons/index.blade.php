@@ -8,19 +8,16 @@
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
-                    <strong>Holy guacamole!</strong>
+                    <strong>Wow, you're really good at this!</strong>
                     <p>{{ Session::get('success') }}</p>
                 </div>
             @endif
             <div class="table-responsive-xl">
-                <table class="table table-light" id="courseTable">
+                <table class="table table-light" id="lessonTable">
                     <thead>
                         <tr>
-                            <th scope="col" class="text-light">Lesson Name</th>
-                            
-                            <th scope="col">Lesson Name</th>
-                            <th scope="col">Lesson Description</th>
-                            <th scope="col">Lesson Difficulty</th>
+                            <th scope="col" class="text-dark">Lesson Name</th>
+                            <th scope="col">Lesson Title</th>
                             <th scope="col">Actions</th>
                             <th></th>
                             <th></th>
@@ -30,7 +27,7 @@
 
                         @foreach ($lessons as $item)
                             <tr class="">
-                                <td scope="row">{{ $item->name}}</td>
+                                <td scope="row">{{ $item->title}}</td>
                                 <td>{{ $item->description}}</td>
                                 <td>
                                     <form action="{{ route('lessons.edit', $item) }}" method="GET">

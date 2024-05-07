@@ -1,0 +1,89 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    max-width: 100;
+    overflow-x: hidden;
+}
+
+form{
+  font-family: serif;
+}
+
+.card-title {
+    color: black !important;
+    font-family: serif;
+}
+
+.card-text {
+  font-family: serif;
+}
+
+.card-header {
+  font-family: serif;
+}
+
+.card-body {
+  font-family: serif;
+}
+
+.fa-star {
+    color: #F0CF5B;
+}
+
+.btn-danger {
+    background-color: #fcd424  !important;
+}
+
+nav{
+  background-color: #364c71;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: #fefefe !important;
+    font-family: serif;
+}
+
+.table {
+  font-family: serif;
+}
+
+h1 {
+  font-family: serif;
+}
+
+
+footer {
+    margin-top: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar-brand {
+    font-family: serif;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    
+}
+
+.navbar-nav {
+  font-family: serif;
+}
+
+.nav-dropdown {
+    color: black !important;
+    font-family: serif;
+}
+
+.nav-dropdown:hover {
+    background-color: #364c71 !important;
+    color: #fefefe !important;
+    font-family: serif;
+}
+
+

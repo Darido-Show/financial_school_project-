@@ -82,7 +82,7 @@ class LessonController extends Controller
     public function destroy(Lesson $lesson)
     {
         $lesson->delete();
-        return back()->with('success', 'Successfully deleted the course: ' . $lesson->name . '.');
+        return back()->with('success', 'Successfully deleted the lesson: ' . $lesson->title . '.');
     }
 
     /* Saját funkciók */
@@ -95,8 +95,21 @@ class LessonController extends Controller
     public function restore(Lesson $lesson)
     {
         $lesson->restore();
-        return back()->with('success', '' . $lesson->name . ' was successfully restored.');
+        return back()->with('success', '' . $lesson->title . ' was successfully restored.');
+    }
+
+    public function show_lessons(Lesson $lesson) {
+
+        // A kurzushoz tartozó leckék lekérése
+        /* $course = Course::with('lessons')->find($course_id); */
+        $lessons = $lesson->lessons;
+
+        if (count($lessons) == 0) {
+            return view('lessons.no_lessons');
+        }
+        return view ('lessons.show_lessons', ['lessons' => $lessons]);
     }
 
 
 }
+

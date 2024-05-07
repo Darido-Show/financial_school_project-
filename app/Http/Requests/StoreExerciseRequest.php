@@ -22,7 +22,9 @@ class StoreExerciseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|unique:exercises',
+            'lesson_id' => 'required',
+            'question_id' => 'required'
         ];
     }
 }

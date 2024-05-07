@@ -22,7 +22,9 @@ class UpdateExerciseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|unique:exercises'.$this->id,
+            'lesson_id' => 'required',
+            'question_id' => 'required'
         ];
     }
 }

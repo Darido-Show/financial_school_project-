@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card border-secondary">
                 <div class="card-body">
-                    <h4 class="card-title">Update a Lesson</h4>
+                    <h4 class="card-title">Update a Lesson named: {{$lesson->title}}</h4>
                     <p class="card-text text-danger">Inputs marked with * shall be filled.</p>
 
                     @if ($errors->any())
@@ -15,7 +15,7 @@
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
-                                <strong>Holy guacamole!</strong>
+                                <strong>Ups, try again!</strong>
 
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -30,23 +30,23 @@
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                          
-                            <strong>Holy guacamole!</strong> 
+                            <strong>Wow, you're really good at this!</strong> 
                             <p>{{Session::get('success')}}</p>
                         </div>
                     @endif
 
-                    <form action="{{ route('lessons.update') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('lessons.update',$lesson) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('POST')
+                        @method('PUT')
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-control @if($errors->has('name')) border border-danger @endif"
-                                placeholder="Lesson Name" aria-describedby="helpId" value="{{old('name')}}">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" name="title" id="title" class="form-control @if($errors->has('title')) border border-danger @endif"
+                                placeholder="Lesson Title" aria-describedby="helpId" value="{{old('title')}}">
 
-                            @if ($errors->has('name'))
-                                <small class="text-danger">{{ $errors->first('name') }}</small>
+                            @if ($errors->has('title'))
+                                <small class="text-danger">{{ $errors->first('title') }}</small>
                             @else
-                                <small id="helpId" class="text-muted">The name of the course to be created.</small>
+                                <small id="helpId" class="text-muted">The title of the lesson to be edited.</small>
                             @endif
 
                         </div>
@@ -58,8 +58,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="difficulty" class="form-label">Difficulty</label>
-                            <input type="text" name="description" id="description" class="form-control"
-                                placeholder="f.e. Beginner tutorial" aria-describedby="helpId" maxlength="255">
+                                <select class="form-select" aria-label="Deafult select example">
+                                    <option selected disabled>Open this select menu</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                  </select>
                             <small id="helpId" class="text-muted">Short summary of the Lesson (255 chars)</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
