@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLessonRequest;
 use App\Http\Requests\UpdateLessonRequest;
+use App\Models\Difficulty;
 use App\Models\Lesson;
 
 class LessonController extends Controller
@@ -24,7 +25,8 @@ class LessonController extends Controller
      */
     public function create()
     {
-        return view("lessons.create");
+        $difficulties = Difficulty::all();
+        return view("lessons.create", ['difficulties' => $difficulties ] );
     }
 
     /**
@@ -36,13 +38,13 @@ class LessonController extends Controller
             [
                 "title" => $request->title,
                 "description" => $request->description,
-                "difficulty" => $request->difficulty
+                "difficulty_id" => $request->difficulty
             ]
         );
 
         $lesson->save();
 
-        return back()->with("success", "lesson created successfully.");
+        return back()->with("success", "Lesson created successfully.");
 
     }
 
@@ -61,7 +63,8 @@ class LessonController extends Controller
      */
     public function edit(Lesson $lesson)
     {
-        return view("lessons.edit", ['lesson' => $lesson]);
+        $difficulties = Difficulty::all();
+        return view("lessons.edit", ['lesson' => $lesson, 'difficulties' => $difficulties ]);
     }
 
     /**
@@ -69,7 +72,12 @@ class LessonController extends Controller
      */
     public function update(UpdateLessonRequest $request, Lesson $lesson)
     {
-        $lesson->update($request->all());
+        //$lesson->update($request->all);
+        $lesson->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'difficulty_id' => $request->difficulty
+        ]);
 
         return redirect()->route('lessons.index')->with('success', 'The lesson was updated successfully.');
     }

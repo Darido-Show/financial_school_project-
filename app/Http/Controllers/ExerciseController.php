@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreExerciseRequest;
 use App\Http\Requests\UpdateExerciseRequest;
 use App\Models\Exercise;
+use App\Models\Lesson;
 
 class ExerciseController extends Controller
 {
@@ -24,7 +25,8 @@ class ExerciseController extends Controller
      */
     public function create()
     {
-        return view("exercises.create");
+        $lessons = Lesson::all();
+        return view("exercises.create ", ['lessons' => $lessons ]);
     }
 
     /**
@@ -68,7 +70,11 @@ class ExerciseController extends Controller
      */
     public function update(UpdateExerciseRequest $request, Exercise $exercise)
     {
-        $exercise->update($request->all());
+        $exercise->update([
+            "name" => $request->name,
+            "lesson_id" => $request->lesson_id,
+            //"question_id"=> $request->question_id
+        ]);
 
         return redirect()->route('exercises.index')->with('success', 'The exercise was updated successfully.');
 

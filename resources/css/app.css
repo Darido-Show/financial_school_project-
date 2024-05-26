@@ -32,10 +32,6 @@ form{
     color: #F0CF5B;
 }
 
-.btn-danger {
-    background-color: #fcd424  !important;
-}
-
 nav{
   background-color: #364c71;
 }
@@ -68,7 +64,6 @@ footer {
     font-family: serif;
     letter-spacing: 5px;
     text-transform: uppercase;
-    
 }
 
 .navbar-nav {
@@ -85,5 +80,12 @@ footer {
     color: #fefefe !important;
     font-family: serif;
 }
+
+.card {
+  background-color: #364c71 !important;
+  opacity: 0.88;
+}
+
+
 
 

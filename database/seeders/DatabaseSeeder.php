@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ExerciseSeeder::class,
             QuestionSeeder::class,
             LessonSeeder::class,
+            DifficultySeeder::class,
 
         ]);
         

@@ -14,9 +14,9 @@ class LessonSeeder extends Seeder
     public function run(): void
     {
         Lesson::factory()->create([
-            'difficulty' => 'beginner',
             'title'=> 'teszt',
             'description'=> 'teszt',
+            
         ]);
     }
 }

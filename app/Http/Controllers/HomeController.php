@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Difficulty;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $lessons = Lesson::all();
+        $difficulty = Difficulty::all();
+
+        return view('home', ['lessons' => $lessons, 'difficulty_id' => $difficulty ]);
+    }
+
+
+    public function show()
+    {
+        $lessons = Lesson::all();
+        $this->authorize('view', $lessons);
+        return view('lessons.show', ['lesson' => $lessons]);
     }
 }
