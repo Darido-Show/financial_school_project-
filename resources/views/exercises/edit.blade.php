@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card border-secondary">
                 <div class="card-body">
-                    <h4 class="card-title">Update a Exercise</h4>
+                    <h4 class="card-title text-white">Update a Exercise</h4>
                     <p class="card-text text-danger">Inputs marked with * shall be filled.</p>
 
                     @if ($errors->any())
@@ -39,28 +39,32 @@
                         @csrf
                         @method('POST')
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label text-white">Name</label>
                             <input type="text" name="name" id="name" class="form-control @if($errors->has('name')) border border-danger @endif"
-                                placeholder="Lesson Name" aria-describedby="helpId" value="{{old('name')}}">
+                                placeholder="Exercise Name" aria-describedby="helpId" value="{{old('name')}}">
 
                             @if ($errors->has('name'))
                                 <small class="text-danger">{{ $errors->first('name') }}</small>
                             @else
-                                <small id="helpId" class="text-muted">The name of the course to be created.</small>
+                                <small id="helpId" class="text-warning">The name of the Execrise to be created.</small>
                             @endif
 
                         </div>
                         <div class="mb-3">
-                            <label for="lesson_id" class="form-label">lesson_id</label>
-                            <input type="text" name="lesson_id" id="lesson_id" class="form-control"
-                                placeholder="f.e. Beginner tutorial" aria-describedby="helpId" maxlength="255">
-                            <small id="helpId" class="text-muted">Short summary of the Lesson (255 chars)</small>
+                            <label for="lesson_id" class="form-label text-white">Lesson</label>
+                            <select class="form-select" name="lesson_id" aria-label="Deafult select example">
+                                <option selected disabled>Open this select menu</option>
+                                @foreach ($lessons as $item)
+                                    <option value="{{$item->id}}">{{ucfirst($item->title)}}</option>
+                                @endforeach
+                              </select>
+                            <small id="helpId" class="text-warning">The Lesson which the Excercise belongs to.</small>
                         </div>
                         <div class="mb-3">
-                            <label for="question_id" class="form-label">question_id</label>
+                            <label for="question_id" class="form-label text-white">Question</label>
                             <input type="text" name="question_id" id="question_id" class="form-control"
                                 placeholder="f.e. Beginner tutorial" aria-describedby="helpId" maxlength="255">
-                            <small id="helpId" class="text-muted">Short summary of the Lesson (255 chars)</small>
+                            <small id="helpId" class="text-warning">The Question which the Excercise belongs to.</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

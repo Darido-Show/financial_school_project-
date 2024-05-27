@@ -11,7 +11,7 @@
                                 <p class="h4 text-light text-truncate">{{ $lesson->title }}</p>
                             </div>
                             <div class="col-12">
-                                <p class="text-light text-secondary">Lesson level: {{ $lesson->difficulty }}</p>
+                                <p class="text-light text-secondary">Lesson level: {{ $lesson->difficulty_id}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -21,7 +21,7 @@
                         </div>
                         <div class="row">
                             <div class="col-3">
-                                <form action="#" method="post">
+                                <form action="{{ route('lessons.show', $lesson) }}" method="GET">
                                     <button type="submit" class="btn form-button mt-3 border-light text-light">Learn</button>
                                 </form>
                             </div>

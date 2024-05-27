@@ -5,8 +5,8 @@
     <div class="col"></div>
     <div class="col">
         <div class="card border-secondary">
-            <div class="card-body">
-                <h4 class="card-title">{{$exercises->name}}</h4>
+            <div class="card-body text-white">
+                <h4 class="card-title text-white">{{$exercises->name}}</h4>
 
                 <p>Name of the Exercise: {{$exercises->name}}</p>
                 <p>Description of the Exercise: {{$exercises->description}}</p>
